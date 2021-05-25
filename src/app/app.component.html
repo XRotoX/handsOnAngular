@@ -1,0 +1,27 @@
+<nav class="navbar navbar-inverse" style="border-radius:0;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Angular store</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="/products/2/1">Monitors</a></li>
+      <li><a href="/products/2/2">Headphones</a></li>
+      <li><a href="/products/2/3">Printers</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="col-md-3">
+    <ul class="list-group" *ngIf="categories">
+      <li  [ngClass]="currentCategory==c?'active':''" (click)="getProductsByCat(c)" class="list-group-item clickable" *ngFor="let c of categories._embedded.categories" >
+          {{c.name}}
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-md-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>
